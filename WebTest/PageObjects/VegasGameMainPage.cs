@@ -17,7 +17,7 @@ namespace WebTest.PageObjects
         {
             this.GameName = GameName;
             this.driver = driver;
-            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(120));
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
         }
 
         public void Open()

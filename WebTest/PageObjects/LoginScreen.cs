@@ -1,22 +1,25 @@
 ﻿using System;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace WebTest.PageObjects
 {
     public class LoginScreen
     {
         private IWebDriver driver;
+        private WebDriverWait wait;
         public LoginScreen(IWebDriver driver)
         {
             this.driver = driver;
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
         }
 
         public IWebElement checkIfLoginWindowOpened()
         {
             try
             {
-                return driver.FindElement(By.CssSelector("div[class='sb-modal-component__wrapper']"));
-            }
+                return wait.Until(dr => dr.FindElement(By.CssSelector("div[class='sb-modal-component__wrapper']")));
+                            }
             catch (Exception ex)
             {
 
